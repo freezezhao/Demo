@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>D4 team Demo</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta charset=utf-8>
+        <meta name="description" content="Restaurant Website and Gallery Template with jQuery and Google Maps" />
+        <meta name="keywords" content="jquery, gallery, images, css3, html5, photography, website, template, google maps, sliding, background"/>
+		<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css' />
+		<link href='http://fonts.googleapis.com/css?family=Terminal+Dosis+Light' rel='stylesheet' type='text/css'>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+		<!-- <script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script> -->
+		<style>
+		.bf_content_text{font-family:"STKaiti"}
+		.btn{ background-color:#FFF; border:1px solid #CDCDCD;height:24px; width:70px;}
+		.txt{ height:22px; border:1px solid #cdcdcd; width:180px;}
+		.videoContainer {width: 70%; height: auto; background: #000;}
+		</style>
+    </head>
+<body>
+
+		<div id="map"></div>
+		<div id="bf_container" class="bf_container">
+			<div id="bf_background" class="bf_background">
+				<img src="images/background/selected_image.jpg" alt="image1" style="display:none;"/>
+				<div class="bf_overlay"></div>
+			</div>
+			<div id="bf_page_menu" class="bf_menu" >
+				<h1 class="title">Vittori's<span>trattoria italiana</span></h1>
+				<ul>
+					<li><a href="#" data-content="intro"><span class="bf_hover"></span><span>基本介绍</span></a></li>
+					<li><a href="#" data-content="about"><span class="bf_hover"></span><span>上传视频</span></a></li>
+					<li><a href="#" data-content="menu"><span class="bf_hover"></span><span>结果分析</span></a></li>
+					<li><a href="#" data-content="visit1"><span class="bf_hover"></span><span>反馈我们</span></a></li>
+				</ul>
+			</div>
+			
+			
+			<div class="bf_page" id="visit1" >
+				<div class="bf_content_text" >
+					<h2>联系我们</h2>
+					<p>我们的地址   <a href="http://www.sjtu.edu.cn" target="_blank" style="color:#fff;" title="地址">www.sjtu.edu.cn</a></p>
+				</div>
+			</div>
+			
+			<div class="bf_page" id="about">
+				<div class="bf_content_text">
+					<h2>上传视频！</h2>
+					<p>选择一段你想进行分析的视频，点击上传后开启前所未有的历程！</p>
+					<input type="file" id="video_file">
+					<p><button type="button" onclick="D4demo()">上传！</button></p>
+				</div>
+			</div>
+			
+			<div class="bf_page" id="intro" >
+				<div class="bf_content_text">
+					<h2>突破传统！</h2>
+					<p>你是否厌倦了填写各种评教问卷？</p>
+					<p>你是否想了解真实课堂教学效果？</p>
+					<p>你是否想建立全新的评教体系？</p>
+				</div>
+			</div>
+			<div class="bf_page" id="menu">
+				<div id="video_div">
+					<h2>分析结果！</h2>
+					<br></br>
+					<p>挑选一段视频，体验人工智能和大数据带来的全新体验！</p>
+					<!-- <ul id="bf_dishes">
+						<li><a href="#"><img src="images/thumbs/1.jpg" alt="thumb1"/></a></li>
+						<li><a href="#"><img src="images/thumbs/2.jpg" alt="thumb2"/></a></li>
+						<li><a href="#"><img src="images/thumbs/3.jpg" alt="thumb3"/></a></li>
+						<li><a href="#"><img src="images/thumbs/4.jpg" alt="thumb4"/></a></li>
+						<li><a href="#"><img src="images/thumbs/5.jpg" alt="thumb5"/></a></li>
+						<li><a href="#"><img src="images/thumbs/6.jpg" alt="thumb6"/></a></li>
+					</ul> -->
+					<video id="example_video_1" controls width="850" height="550" style="z-index:0"
+							poster="images/foreground/1.jpg"  
+							data-setup="{}">
+							
+							<source src="video/kisscan.mp4" type='video/mp4'/>   
+							<p class="vjs-no-js">请使用支持html5的浏览器</p> 不支持html5显示  
+					</video> 
+				</div>
+				<!-- <div id="bf_gallery" class="bf_gallery">
+					<a id="bf_close" href="#" class="bf_close"></a>
+					<div class="bf_nav">
+						<a id="bf_prev" href="#" class="bf_prev"></a>
+						<a id="bf_next" href="#" class="bf_next"></a>
+					</div>
+					<div class="bf_gallery_wrapper" style="z-index:5">
+						<div class="bf_gallery_item" style="z-index:3">
+							<div class="bf_heading">vedeo1</div>
+							<div class="bf_desc">
+								<p>briefintroduction</p>
+							</div>
+							
+							
+							<video id="example_video_1" controls width="640" height="264" style="z-index:0"
+							poster="images/foreground/1.jpg"  
+							data-setup="{}">
+							
+							<source src="video/kisscan.mp4" type='video/mp4'/>   
+							<p class="vjs-no-js">请使用支持html5的浏览器</p> 不支持html5显示  
+							</video> 
+						</div>
+						<div class="bf_gallery_item">
+							<div class="bf_heading"><h2>Pizza Quattro Stagioni</h2></div>
+							<div class="bf_desc">
+								<p>Originality meets tradition</p>
+							</div>
+							<img src="images/foreground/2.jpg" alt="image1" data-bgimg="images/background/2.jpg" />
+						</div>
+						<div class="bf_gallery_item">
+							<div class="bf_heading"><h2>Rucolini</h2></div>
+							<div class="bf_desc">
+								<p>Dive into the balance of taste</p>
+							</div>
+							<img src="images/foreground/3.jpg" alt="image1" data-bgimg="images/background/3.jpg" />
+						</div>
+						<div class="bf_gallery_item">
+							<div class="bf_heading"><h2>Salsicce Boscaiola</h2></div>
+							<div class="bf_desc">
+								<p>The right intensity</p>
+							</div>
+							<img src="images/foreground/4.jpg" alt="image1" data-bgimg="images/background/4.jpg" />
+						</div>
+						<div class="bf_gallery_item">
+							<div class="bf_heading"><h2>Tortelloni Alla Zucca</h2></div>
+							<div class="bf_desc">
+								<p>Incredibly tasty perfection</p>
+							</div>
+							<img src="images/foreground/5.jpg" alt="image1" data-bgimg="images/background/5.jpg" />
+						</div>
+						<div class="bf_gallery_item">
+							<div class="bf_heading"><h2>Calamaretti Fritti</h2></div>
+							<div class="bf_desc">
+								<p>Combine chunky and soft</p>
+							</div>
+							<img src="images/foreground/6.jpg" alt="image1" data-bgimg="images/background/6.jpg" />
+						</div>
+					</div>
+				</div> -->
+			</div>
+		</div>
+
+		<!-- The JavaScript -->
+		<!-- the mousewheel plugin - optional to provide mousewheel support -->
+		<!-- <script type="text/javascript" src="js/jquery.mousewheel.js"></script> -->
+		<script type="text/javascript" src="js/jquery.template.js"></script>
+		<script type="text/javascript" src='js/qingstor-sdk.js'></script>
+		<script type="text/javascript" src="js/myjs.js"></script>
+    </body>
+</html>
